@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="menu_driverOla_main" name="Driver Ola" parent="menu_driver_root"/>
+
+    <record id="OlaOne_tree" model="ir.ui.view">
+        <field name="name">child0.tree</field>
+        <field name="model">delegation.child0</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="field_0"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="OlaOne_form" model="ir.ui.view">
+        <field name="name">child0.form</field>
+        <field name="model">delegation.child0</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="field_0"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_OlaOne" model="ir.actions.act_window">
+        <field name="name">OlaOne</field>
+        <field name="res_model">delegation.child0</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+    </record>
+
+    <menuitem id="menu_OlaOne" name="OlaOne" parent="menu_driverOla_main" action="action_OlaOne"/>
+</odoo>

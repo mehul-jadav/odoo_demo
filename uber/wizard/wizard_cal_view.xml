@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="wizard_cal_form" model="ir.ui.view">
+        <field name="name">wizard.cal.form</field>
+        <field name="model">wizard.cal</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="days"/>
+                    <field name="price"/>
+                </group>
+
+                <footer>
+                    <button name="cal_amount_total" string="Calculate" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel" class="oe_link"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+    <record id ="action_wizard_cal" model="ir.actions.act_window">
+        <field name="name">Amount</field>
+        <field name="res_model">wizard.cal</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+        <field name="view_type">form</field>
+    </record>
+
+    <act_window id="launch_wizard"
+                name="Add Amount"
+                res_model="wizard.cal"
+                src_model="person.person"
+                view_mode="form"
+                target="new"/>
+    <!--                key2="client_action_multi"-->
+
+    <menuitem id="menu_launch_wizard" parent="menu_driverOla_main" action="action_wizard_cal"/>
+
+</odoo>

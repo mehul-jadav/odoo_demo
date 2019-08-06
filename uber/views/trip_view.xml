@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- student Tree View -->
+    <record id="view_trip_tree" model="ir.ui.view">
+        <field name="name">trip.tree</field>
+        <field name="model">trip.trip</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="person_id"/>
+                <field name="end_date"/>
+                <field name="trip_type"/>
+                <field name="driver_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- student Form -->
+    <record id="view_trip_form" model="ir.ui.view">
+        <field name="name">trip.form</field>
+        <field name="model">trip.trip</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_create" string="Create" type="object" class="btn btn-secondary"/>
+                    <button name="start_trip" string="Start" type="object" class="btn btn-success"/>
+                    <button name="end_trip" string="End" type="object" class="btn btn-danger"/>
+                    <button name="cancel_trip" string="Cancel" type="object" class="btn btn-warning"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,start,end"/>
+                </header>
+                <sheet>
+                    <group col="4">
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="person_id"/>
+                        <field name="end_date"/>
+                        <field name="trip_type"/>
+                        <field name="driver_id"/>
+                        <!--                     <field name="trip_type" invisible="1"/> -->
+                    </group>
+                    <separator string="Trip Menu"/>
+                    <field name="trip_menus">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="amount"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!--    Kanban view-->
+    <record id="view_trip_kanban" model="ir.ui.view">
+        <field name="name">trip.kanban</field>
+        <field name="model">trip.trip</field>
+        <field name="arch" type="xml">
+
+            <kanban default_group_by="trip_type">
+                <field name="color"/>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="person_id"/>
+                <field name="end_date"/>
+                <field name="trip_type"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <span class="o_kanban_quick_add"><i class="fa fa-plus"></i></span>
+                        <div
+                                t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                                                  oe_kanban_global_click_edit oe_semantic_html_override
+                                                  oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+
+                            <div class="oe_dropdown_kanban">
+                                <!-- dropdown menu -->
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="set_cover">Set Cover Image</a>
+                                        </li>
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                        <li>
+                                            <a type="edit">Edit</a>
+                                        </li>
+                                        <li>
+                                            <ul class="oe_kanban_colorpicker"
+                                                data-field="color"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+
+
+                            <!--    Content -->
+                            <!--                        <div class="oe_kanban_content">-->
+                            <div t-attf-class="oe_kanban_content">
+                                <!--                            <div class="oe_resource_vignette">-->
+                                <!--                                <a type="open">-->
+                                <!--                                                                    <img t-att-src="kanban_image('trip.trip','image',record.id.value)" class="oe_kanban_picture" style="max-height: 75px; max-width: 75px;" />-->
+                                <!--                                </a>-->
+                                <!--                            </div>-->
+
+                                <div class="oe_kanban_details">
+                                    <field name="name"/><br/>
+                                    <field name="start_date"/><br/>
+                                    <field name="person_id"/><br/>
+                                    <field name="end_date"/><br/>
+                                    <field name="trip_type"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="trip_search_view">
+        <field name="name">trip.search</field>
+        <field name="model">trip.trip</field>
+        <field name="arch" type="xml">
+            <search string="Driver">
+                <field name="name"/>
+                <field name="person_id"/>
+                <group expand="0" string="Group By...">
+                    <filter name="groupby_name" string="Name"
+                            domain="[]" context="{'group_by':'name'}"/>
+                    <filter name="person_id" string="Person"
+                            domain="[]" context="{'group_by':'person_id'}" />
+                    <filter name="groupby_trip_type" string="Type"
+                            domain="[]" context="{'group_by':'trip_type'}" />
+                </group>
+                <group expand="0" string="Filter By...">
+                    <filter name="filterby_name" string="Name"
+                            domain="[('name','=','Lonavala')]" />
+                    <filter name="filterby_person_id" string="Person name 'k'"
+                            domain="[('person_id','ilike','K')]" />
+                    <filter name="filterby_start_date" string="Date"
+                            domain="[('start_date','>','01-01-2018')]" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_trip_cal" model="ir.ui.view">
+        <field name="name">trip.calendar</field>
+        <field name="model">trip.trip</field>
+        <field name="arch" type="xml">
+            <calendar string="Name" date_start="start_date" date_stop="end_date" color="name">
+                <field name="name"/>
+                <field name="trip_type"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_trip_graph">
+        <field name="name">trip.graph</field>
+        <field name="model">trip.trip</field>
+        <field name="arch" type="xml">
+            <graph string="Trip">
+                <field name="name"/>
+                <!--                <field name="person_id"/>-->
+                <field name="trip_type" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_trip" model="ir.actions.act_window">
+        <field name="name">Trip</field>
+        <field name="res_model">trip.trip</field>
+        <field name="view_mode">kanban,tree,form,calendar,graph</field>
+        <field name="view_type">form</field>
+    </record>
+    <menuitem id="menu_trip" name="Trip" parent="menu_user_main" action="action_trip"/>
+
+</odoo>
+
+        <!--<kanban default_group_by="stage_id" class="o_kanban_small_column o_kanban_project_tasks" on_create="quick_create">-->

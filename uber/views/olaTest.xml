@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="menu_driverOla_main" name="Driver Ola" parent="menu_driver_root"/>
+
+    <record id="olaTest_tree" model="ir.ui.view">
+        <field name="name">olaTest.tree</field>
+        <field name="model">test.test</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="number"/>
+                <field name="age"/>
+                <field name="country_id"/>
+                <field name="birthday"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="olaTest_form" model="ir.ui.view">
+        <field name="name">olaTest.form</field>
+        <field name="model">test.test</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4">
+                        <field name="name"/>
+                        <field name="number"/>
+                        <field name="age"/>
+                        <field name="birthday"/>
+                        <field name="city"/>
+                        <field name="country_id"/>
+                        <field name="zip"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="website"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_olaTest" model="ir.actions.act_window">
+        <field name="name">OlaOne</field>
+        <field name="res_model">test.test</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+    </record>
+
+    <menuitem id="menu_olaTest" name="olaTest" parent="menu_driverOla_main" action="action_olaTest"/>
+</odoo>

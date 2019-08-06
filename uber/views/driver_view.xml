@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <menuitem id="menu_driver_root" name="Book Your Ride"/>
+    <menuitem id="menu_driver_main" name="Driver" parent="menu_driver_root"/>
+
+    <!--    Driver tree view-->
+    <record id="view_driver_tree" model="ir.ui.view">
+        <field name="name">driver.tree</field>
+        <field name="model">driver.driver</field>
+
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="number"/>
+                <field name="address"/>
+                <field name="birthday"/>
+                <field name="joining_date"/>
+                <field name="experience"/>
+                <field name="person_ids"/>
+                <field name="phone_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    Driver Form-->
+    <record id="view_driver_form" model="ir.ui.view">
+        <field name="name">driver.form</field>
+        <field name="model">driver.driver</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="person_detail" string="Person Detail"  class="btn btn-danger" type="object"/>
+                    <button name="Onesearch" string="Search"  class="btn btn-warning" type="object"/>
+                </header>
+                <group>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="number" readonly="1"/>
+                    <field name="address"/>
+                    <field name="birthday"/>
+                    <field name="joining_date"/>
+                    <field name="experience"/>
+                </group>
+
+                <notebook>
+                    <page string="Person" name="person">
+                        <field name="person_ids">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="birthday"/>
+                                <field name="gender"/>
+                            </tree>
+                            <form>
+                                <group col="4">
+                                    <field name="name"/>
+                                    <field name="birthday"/>
+                                    <field name="gender"/>
+                                    <field name="age"/>
+                                    <field name="description"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                    <page string="Phone" name="phone">
+                        <field name="phone_ids" widget="many2many_tags"/>
+                    </page>
+                </notebook>
+                <footer>
+                    <center>
+                        <br></br>
+                        <button name="btnchange" string="Joining Date Change"  class="btn btn-success btn-lg" type="object"/>
+                        <br></br><br></br>
+                        <button name="btnchg" string="Read Record"  class="btn btn-success btn-lg" type="object"/>
+                    </center>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="driver_search_view">
+        <field name="name">driver.search</field>
+        <field name="model">driver.driver</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="number"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_driver_cal" model="ir.ui.view">
+        <field name="name">driver.calendar</field>
+        <field name="model">driver.driver</field>
+        <field name="arch" type="xml">
+            <calendar string="Name" date_start="joining_date" color="name">
+                <field name="name"/>
+                <field name="email"/>
+            </calendar>
+        </field>
+    </record>
+
+
+    <record id="action_driver" model="ir.actions.act_window">
+        <field name="name">Driver</field>
+        <field name="res_model">driver.driver</field>
+        <!--        <field name="name">{'name_get'}</field>-->
+        <field name="view_mode">tree,form,search,calendar</field>
+        <field name="context"  eval="{'search_default_my_courses': 1}"/>
+        <field name="view_type">form</field>
+    </record>
+
+    <menuitem id="menu_driver" name="Driver" parent="menu_driver_main" action="action_driver"/>
+
+</odoo>

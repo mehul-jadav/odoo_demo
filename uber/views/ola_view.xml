@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="menu_driverOla_main" name="Driver Ola" parent="menu_driver_root"/>
+
+<!--    <record id="ola_tree" model="ir.ui.view">-->
+<!--        <field name="name">Delegating.tree</field>-->
+<!--        <field name="model">delegating.parent</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree>-->
+<!--                <field name="field_1"/>-->
+<!--                <field name="child0_id"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="ola_form" model="ir.ui.view">
+        <field name="name">Delegating.form</field>
+        <field name="model">delegating.parent</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                    <field name="field_1"/>
+                    <field name="child0_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ola" model="ir.actions.act_window">
+        <field name="name">Ola</field>
+        <field name="res_model">delegating.parent</field>
+        <field name="view_mode">form</field>
+        <field name="view_type">form</field>
+    </record>
+
+    <menuitem id="menu_ola" name="ola" parent="menu_driverOla_main" action="action_ola"/>
+</odoo>

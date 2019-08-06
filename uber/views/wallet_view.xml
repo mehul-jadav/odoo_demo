@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="view_wallet_tree" model="ir.ui.view">
+        <field name="name">wallet.tree</field>
+        <field name="model">wallet.wallet</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="payment_type"/>
+                <field name="status"/>
+                <field name="person_id"/>
+                <field name="driver_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_wallet_form" model="ir.ui.view">
+        <field name="name">wallet.form</field>
+        <field name="model">wallet.wallet</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4">
+                        <!--                        <label for="status"/> :-->
+                        <field name="payment_type"/>
+                        <field name="status"/>
+                        <field name="person_id"/>
+                        <field name="driver_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wallet" model="ir.actions.act_window">
+        <field name="name">Wallet</field>
+        <field name="res_model">wallet.wallet</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+    </record>
+
+    <menuitem id="menu_wallet" name="Wallet" parent="menu_driver_main" action="action_wallet"/>
+</odoo>
