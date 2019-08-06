@@ -14,7 +14,6 @@ class Driver(models.Model):
     experience = fields.Integer('Experience')
 
     person_ids = fields.One2many('person.person','driver_id','person')  #OnetoMany not create in database Add item from fk
-
     phone_ids = fields.Many2many('phone.phone','driver_phone_rel','driver_id','phone_id',string='Phone')
 
     # _rec_name = 'number' #If your columns don't have any name field then you have to define any field in _rec_name.
