@@ -4,15 +4,14 @@
     <report
             id="custom_report_user"
             model="user.user"
-            string="User Price"
+            string="User Details"
             report_type="qweb-pdf"
             name="uber.report_user"
             file="uber.report_user"
     />
-
 </odoo>
 
-<!--	- Pdf report -> qweb-pdf-->
-<!-- 	- Html report -> qweb-html-->
-<!-- 	- Controller -> controller-->
-<!-- 	- Xlsx -> xlsx-->
+        <!--	- Pdf report -> qweb-pdf-->
+        <!-- 	- Html report -> qweb-html-->
+        <!-- 	- Controller -> controller-->
+        <!-- 	- Xlsx -> xlsx-->

@@ -6,11 +6,29 @@
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <h2>Report title</h2>
-                        <p>This object's name is <span t-field="o.name"/></p>
-                        <p>This object's email is <span t-field="o.email"/></p>
-                        <p>This object's birthday is <span t-field="o.birthday"/></p>
-                        <p>This object's location is <span t-field="o.location"/></p>
+                        <h3>-- User Detail -- </h3>
+                        <h4>
+                            <p>This object's name is <span t-field="o.name"/></p>
+                            <p>This object's email is <span t-field="o.email"/></p>
+                            <p>This object's birthday is <span t-field="o.birthday"/></p>
+                            <p>This object's location is <span t-field="o.location"/></p>
+                        </h4>
+                        <p><t t-esc="o.email"/></p>
+
+                        <br></br>
+
+                        <div>
+                            <!--                            <p t-if="user.birthday !== today()">Happy</p>-->
+                            <!--                            <p t-if="user.birthday == today()">Birthday!</p>-->
+                            <p t-if="user.login == 'root'">Welcome master!</p>
+                            <p t-else="">Welcome!</p>
+
+                            <p>
+                                <t t-set="foo" t-value="2 + 1"/>
+                                <t t-esc="foo"/>
+                            </p>
+                        </div>
+
                     </div>
                 </t>
             </t>
