@@ -18,6 +18,8 @@
         'views/wallet_view.xml',
         'views/ola_one_view.xml',
         'views/ola_view.xml',
-        'views/olaTest.xml'
+        'views/olaTest.xml',
+        'report/user_template.xml',
+        'report/user_report.xml'
     ]
 }
