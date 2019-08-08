@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <template id="report_phone">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3> -- Detail -- </h3>
+                        <p>Name is : <span t-field="o.name"/></p>
+                        <p>Price is : <span t-field="o.price"/></p>
+                        <!--                        <p>Image is <span t-field="o.image"/></p>-->
+                        <p>File name is : <span t-field="o.file_name"/></p>
+<!--                        <p>Image name is : <span t-field="o.image"/></p>-->
+
+                        <img t-att-src=" 'data:image/jpeg;base64,%s' % o.image" />
+
+                    </div>
+
+                    <!--                    <div class="footer">-->
+                    <!--                        <img t-att-src="kanban_image('phone.phone',image,oe.image)" style="max-height: 75px; max-width: 75px;" />-->
+                    <!--                    </div>-->
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -20,6 +20,8 @@
         'views/ola_view.xml',
         'views/olaTest.xml',
         'report/user_template.xml',
-        'report/user_report.xml'
+        'report/user_report.xml',
+        'report/phone_template.xml',
+        'report/phone_report.xml'
     ]
 }

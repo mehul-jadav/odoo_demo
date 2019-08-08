@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <report
+            id="custom_report_phone"
+            model="phone.phone"
+            string="Details"
+            report_type="qweb-html"
+            name="uber.report_phone"
+            file="uber.report_phone"
+            attachment_use="True"
+
+    />
+</odoo>
