@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <report
+            id="custom_report_person"
+            model="person.person"
+            string="Details"
+            report_type="qweb-html"
+            name="uber.report_person"
+            file="uber.report_person"
+    />
+</odoo>

@@ -17,14 +17,11 @@ class Person(models.Model):
     driver_id = fields.Many2one('driver.driver','Driver')   #ManyToOne like City -> State
     person_detail = fields.One2many('person.detail', 'person_id', 'Person') #copy=True
 
-
     @api.constrains('age')
     def _check_age(self):
         for record in self:
             if record.age > 20:
-                raise ValidationError("Your age is too old: %s" % record.age)
-
-
+                raise ValidationError("Your age is : %s" % record.age)
 
     #Sql Constraints
     _sql_constraints = [
@@ -32,6 +29,7 @@ class Person(models.Model):
          'UNIQUE(name)',
          "The Name must be unique"),
     ]
+
     # ('name_description_check',
     #  'CHECK(name != description)',
     #  "The title of the course should not be the description"),

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <template id="report_driver">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3>-- Driver Detail -- </h3>
+                        <p>This name is :<span t-field="o.name"/></p>
+                        <p>This email is :<span t-field="o.email"/></p>
+                        <p>This number is :<span t-field="o.number"/></p>
+                        <p>This birthday is :<span t-field="o.birthday"/></p>
+
+                        <br></br>
+                        <p> Many2many field Relationship </p>
+                        <p>
+                            <tr t-foreach="o.phone_ids" t-as="line">
+                                <td>
+                                    <p><span t-field="line.name"/></p>
+                                </td>
+                            </tr>
+                        </p>
+
+                        <br></br>
+                        <p> One2many Relationship </p>
+                        <tr t-foreach='o.person_ids' t-as='line'>
+                            <p>
+                                <td><span t-esc="line.name"/></td>
+                                <td><span t-field="line.gender"/></td>
+                            </p>
+                        </tr>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

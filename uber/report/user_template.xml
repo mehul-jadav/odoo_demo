@@ -12,7 +12,6 @@
                             <p>This object's email is <span t-field="o.email"/></p>
                             <p>This object's birthday is <span t-field="o.birthday"/></p>
                             <p>This object's location is <span t-field="o.location"/></p>
-
                         <p><t t-esc="o.email"/></p>
 
                         <br></br>

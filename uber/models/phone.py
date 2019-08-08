@@ -1,7 +1,6 @@
 from odoo import models,fields,api
 from odoo.exceptions import UserError
 import datetime
-
 from odoo.exceptions import ValidationError
 
 class Phone(models.Model):

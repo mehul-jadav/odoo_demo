@@ -22,6 +22,10 @@
         'report/user_template.xml',
         'report/user_report.xml',
         'report/phone_template.xml',
-        'report/phone_report.xml'
+        'report/phone_report.xml',
+        'report/driver_template.xml',
+        'report/driver_report.xml',
+        'report/person_template.xml',
+        'report/person_report.xml'
     ]
 }
