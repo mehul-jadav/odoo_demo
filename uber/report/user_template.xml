@@ -8,15 +8,15 @@
                     <div class="page">
                         <h3>-- User Detail -- </h3>
 
-                            <p>This object's name is <span t-field="o.name"/></p>
-                            <p>This object's email is <span t-field="o.email"/></p>
-                            <p>This object's birthday is <span t-field="o.birthday"/></p>
-                            <p>This object's location is <span t-field="o.location"/></p>
+                        <p>This object's name is <span t-field="o.name"/></p>
+                        <p>This object's email is <span t-field="o.email"/></p>
+                        <p>This object's birthday is <span t-field="o.birthday"/></p>
+                        <p>This object's location is <span t-field="o.location"/></p>
                         <p><t t-esc="o.email"/></p>
 
                         <br></br>
 
-                        <div>
+                        <div >
                             <!--                            <p t-if="user.birthday == today()">Happy</p>-->
                             <!--                            <p t-if="user.birthday == today()">Birthday!</p>-->
                             <p t-if="user.login == 'root'">Welcome master!</p>
@@ -33,7 +33,6 @@
                                 <p><t t-esc="i"/></p>
                             </t>
                         </div>
-
                     </div>
                 </t>
             </t>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<t t-name="product.report_productlabel">
+    <t t-call="report.html_container">
+        <div class="page">
+            <style>
+            </style>
+
+            <t t-foreach="docs" t-as="template">
+                <t t-foreach="template.product_variant_ids" t-as="product">
+
+                    <div class="col-xs-6" style="padding:0;">
+                        <table style="border-spacing:0;margin-bottom:0;height: 187px; width: 319px; border: 2px solid black;"
+                               class="table">
+                            <thead>
+                            <tr style="width: 3in;">
+                                <td style="width: 2.63in; font-size: 19px; text-align: left; background-color: #fff; margin-top: 10px;"
+                                    colspan="2"
+                                    class="col-xs-8 danger">
+                                    <strong style="text-transform: uppercase;">
+                                        <t t-esc="product.name"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr style="width: 1in;">
+                                <td width="50%"
+                                    style="text-align: center; border-top: 0px solid #fff; padding: 5px; position: relative;">
+                                    <div style="position:absolute; bottom: 20px; left: 0; padding-left: 5px; width: 100%">
+                                        <h4 style="border: 4px solid #ff4040; border-radius: 9px; background-color: #ffff00; padding: 10px 6px; font-size: 21px; margin: 0px ">
+                                            <strong t-field="product.list_price"/>
+                                            <strong>
+                                                <t t-esc="product.company_id.currency_id.symbol"/>
+                                            </strong>
+                                        </h4>
+                                    </div>
+                                </td>
+                                <td width="50%"
+                                    style="text-align: center;border-top: 0px solid #fff;padding: 5px; position: relative;">
+                                    <div style="position:absolute; bottom: 20px; padding-right: 5px;">
+                                        <img class="img-responsive"
+                                             t-att-src="'data:image/png;base64,%s' % res_company.logo"
+                                             style="background-color: #fff; margin-left: auto; margin-right: auto; width: auto; height: 35px; margin-bottom: 5px;"/>
+                                        <img class="img-responsive" t-if="product.barcode"
+                                             t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', product.barcode, 650, 200)"
+                                             style="height: 20px; width: 100%;"/>
+                                        <span style="font-size: 14px">
+                                            <t t-esc="product.barcode"/>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </div>
+    </t>

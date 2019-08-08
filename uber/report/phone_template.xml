@@ -6,12 +6,12 @@
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <h3> -- Details -- </h3>
+                        <h3> -- Detail -- </h3>
                         <p>Name is : <span t-field="o.name"/></p>
                         <p>Price is : <span t-field="o.price"/></p>
                         <p>File name is : <span t-field="o.file_name"/></p>
-                        <p>Price is :
-                            <span t-field="o.image" t-field-options='{"widget": "image","class": "oe_avatar"}'/>
+                        <p>Image is :
+                            <span t-field="o.image" t-field-options='{"widget": "image"}'/>
                         </p>
                     </div>
                 </t>
@@ -19,7 +19,6 @@
         </t>
     </template>
 </odoo>
-
 
         <!--<img t-att-src="'/module_name/static/src/img/image_name.png'" />-->
         <!--<span t-field="o.image_field_name" t-field-options='{"widget": "image"}'/>-->
