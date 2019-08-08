@@ -5,14 +5,31 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
+
                     <div class="page">
-                        <h3> -- Detail -- </h3>
-                        <p>Name is : <span t-field="o.name"/></p>
-                        <p>Price is : <span t-field="o.price"/></p>
-                        <p>File name is : <span t-field="o.file_name"/></p>
-                        <p>Image is :
-                            <span t-field="o.image" t-field-options='{"widget": "image"}'/>
-                        </p>
+                        <table border="2px" width="500" height="500" align="center" cellpadding = "5" cellspacing = "5">
+                            <thead>
+                                <tr>
+                                    <th colspan="9" ><h4 align="center"> Phone Details </h4></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan = "3" align="center"><br></br>Name is : <b><span t-field="o.name"/></b></td>
+                                    <td rowspan = "2" align="center">Price is : <b><span t-field="o.price"/></b></td>
+                                </tr>
+                                <tr>
+                                    <td colspan = "3" align="center">File name is : <b><span t-field="o.file_name"/></b></td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="5" align="center">Image is :
+                                        <span t-field="o.image" t-field-options='{"widget": "image","style":"background-color: #fff;width: auto;height: 100px;margin-bottom: 8px;"}'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <br></br>
+                        </table>
                     </div>
                 </t>
             </t>
@@ -21,4 +38,4 @@
 </odoo>
 
         <!--<img t-att-src="'/module_name/static/src/img/image_name.png'" />-->
-        <!--<span t-field="o.image_field_name" t-field-options='{"widget": "image"}'/>-->
+        <!--<span t-field="o.image_field_name" t-field-options='{"widget": "image"}'/> margin-left: auto;margin-right: auto;-->
