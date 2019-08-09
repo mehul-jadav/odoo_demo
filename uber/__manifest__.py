@@ -8,6 +8,7 @@
     'depends': ['base'],
     'data': [
         'wizard/wizard_cal_view.xml',
+        'wizard/user_report_wizard_view.xml',
         'views/driverOla_view.xml',
         'views/driver_view.xml',
         'views/user_view.xml',
@@ -26,6 +27,8 @@
         'report/driver_template.xml',
         'report/driver_report.xml',
         'report/person_template.xml',
-        'report/person_report.xml'
+        'report/person_report.xml',
+        'report/report_user_template.xml',
+        'report/report_wizard_user.xml'
     ]
 }

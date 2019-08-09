@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="wizard_user_report_form" model="ir.ui.view">
+        <field name="name">user.report.wizard</field>
+        <field name="model">wizard.user</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="email"/>
+                    </group>
+
+                    <footer>
+                        <button name="action_email" string="Change" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel" class="oe_link"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id ="action_wizard_user_report" model="ir.actions.act_window">
+        <field name="name">User Report</field>
+        <field name="res_model">wizard.user</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+        <field name="view_type">form</field>
+    </record>
+
+    <act_window id="launch_user_wizard"
+                name="User"
+                res_model="wizard.user"
+                src_model="user.user"
+                view_mode="form"
+                target="new"/>
+    <!--                key2="client_action_multi"-->
+
+
+    <menuitem id="menu_user_report_wizard" name="User Report" action="action_wizard_user_report" parent="menu_driverOla_main"/>
+</odoo>

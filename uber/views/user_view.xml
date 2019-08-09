@@ -27,6 +27,9 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <header>
+                        <button name="%(uber.action_wizard_user_report)d" string="Email Change" class="btn btn-success" type="action"/>
+                    </header>
                     <group>
                         <field name="name"/>
                         <field name="email"/>
