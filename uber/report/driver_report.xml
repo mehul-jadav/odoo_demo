@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <odoo>
+
     <report
             id="custom_report_driver"
             model="driver.driver"
@@ -8,5 +9,21 @@
             report_type="qweb-html"
             name="uber.report_driver"
             file="uber.report_driver"
+            attachment_use="True"
     />
+
+<!--    <record id ="custom_report_driver" model="report.paperformat">-->
+<!--        <field name="name">Europen A4</field>-->
+<!--        <field name="default" eval="True"/>-->
+<!--        <field name="format">Letter</field>-->
+<!--        <field name="page-height">0</field>-->
+<!--        <field name="page-width">0</field>-->
+<!--        <field name="orientation">Portrait</field>-->
+<!--        <field name="margin_top">40</field>-->
+<!--        <field name="margin_bottom">28</field>-->
+<!--        <field name="margin_left">7</field>-->
+<!--        <field name="margin_right">7</field>-->
+<!--        <field name="header_spacing">35</field>-->
+<!--        <field name="dpi">90</field>-->
+<!--    </record>-->
 </odoo>

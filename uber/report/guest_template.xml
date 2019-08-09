@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <template id ="report_guest_inherit" inherit_id="sale.report_saleorder_document">
+<!--        <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})" />-->
+
+        <!--        <xpath expr="">-->
+        <!--        </xpath>-->
+
+    </template>
+
+</odoo>

@@ -9,12 +9,11 @@ class User_report_wizard(models.TransientModel):
     email = fields.Char('Email')
     @api.multi
     def action_email(self):
-        # print("\n Wizard Action..! ")
-        # d = self.env['user.user'].browse(self.env.context.get('active_id'))
-        # print(d, "\n")
-        # ans = d.write({'email': self.email})
-        # def action_email(self):
-        # datas = {}
+        print("\n Wizard Action..! ")
+        d = self.env['user.user'].browse(self.env.context.get('active_id'))
+        print(d, "\n")
+        d.write({'email': self.email})
+
         data = {
             'ids': self.ids,
             'model': self._name,
@@ -32,12 +31,14 @@ class ReportUserReport(models.AbstractModel):
     @api.model
     def get_report_values(self,docids,data=None):
         email = data['form']['email']
-        # email_obj = fields.Char(email)
+
         docs=[]
         test = self.env['user.user'].browse(self.env.context.get('active_id'))
         name = test.name
+        birthday = test.birthday
         docs.append({
-            'name':name
+            'name':name,
+            'birthday':birthday
         })
 
         return {

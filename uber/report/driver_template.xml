@@ -1,38 +1,104 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <odoo>
-    <template id="report_driver">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="o">
+
+    <template id ="report_driver">
+        <t t-call='web.html_container'>
+            <t t-foreach="docs" t-as="object">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <h3>-- Driver Detail -- </h3>
-                        <p>This name is :<span t-field="o.name"/></p>
-                        <p>This email is :<span t-field="o.email"/></p>
-                        <p>This number is :<span t-field="o.number"/></p>
-                        <p>This birthday is :<span t-field="o.birthday"/></p>
+                        <!--                    <div class="article">-->
+                        <p>Thi is Demo Report</p>
 
-                        <br></br>
-                        <p> Many2many field Relationship </p>
-                        <p>
-                            <tr t-foreach="o.phone_ids" t-as="line">
-                                <td>
-                                    <p><span t-field="line.name"/></p>
-                                </td>
+                        <table border="1" class="table table-bordered mb64">
+                            <tr>
+                                <td><strong>Name :</strong></td>
+                                <td><span t-field="object.name"/></td>
                             </tr>
-                        </p>
 
+                            <tr>
+                                <td><strong>Email :</strong></td>
+                                <td><span t-field="object.email"/></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Birthday :</strong></td>
+                                <td><span t-field="object.birthday"/></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Address :</strong></td>
+                                <td><span t-field="object.address"/></td>
+                            </tr>
+
+                        </table>
                         <br></br>
-                        <p> One2many Relationship </p>
-                        <tr t-foreach='o.person_ids' t-as='line'>
-                            <p>
-                                <td><span t-esc="line.name"/></td>
-                                <td><span t-field="line.gender"/></td>
-                            </p>
-                        </tr>
+
+                        <div t-if="person_ids"></div>
+                        <strong>Person Detail</strong>
+                        <table class="table table-condensed">
+                            <tr>
+                                <td class="text-center"><strong>Name</strong></td>
+                                <td class="text-center"><strong>Birthday</strong></td>
+                                <td class="text-center"><strong>Gender</strong></td>
+                            </tr>
+                            <tr t-foreach="object.person_ids" t-as="line">
+                                <td class="text-center"><span t-field="line.name"/></td>
+                                <td class="text-center"><span t-field="line.birthday"/></td>
+                                <td class="text-center"><span t-field="line.gender"/></td>
+                            </tr>
+                        </table>
                     </div>
+
+                    <strong>Phone Detail</strong>
+                    <table class="table table-condensed">
+                        <tr>
+                            <td class="text-center"><strong>Name</strong></td>
+                        </tr>
+                        <tr t-foreach="object.phone_ids" t-as="line">
+                            <td class="text-center"><span t-field="line.name"/></td>
+                        </tr>
+                    </table>
+
+                    <!--                    </div>-->
                 </t>
             </t>
         </t>
     </template>
+
+
+    <!--        <template id="report_driver">-->
+    <!--            <t t-call="web.html_container">-->
+    <!--                <t t-foreach="docs" t-as="o">-->
+    <!--                    <t t-call="web.external_layout">-->
+    <!--                        <div class="page">-->
+    <!--                            <h3>&#45;&#45; Driver Detail &#45;&#45; </h3>-->
+    <!--                            <p>This name is :<span t-field="o.name"/></p>-->
+    <!--                            <p>This email is :<span t-field="o.email"/></p>-->
+    <!--                            <p>This number is :<span t-field="o.number"/></p>-->
+    <!--                            <p>This birthday is :<span t-field="o.birthday"/></p>-->
+
+    <!--                            <br></br>-->
+    <!--                            <p> Many2many field Relationship </p>-->
+    <!--                            <p>-->
+    <!--                                <tr t-foreach="o.phone_ids" t-as="line">-->
+    <!--                                    <td>-->
+    <!--                                        <p><span t-field="line.name"/></p>-->
+    <!--                                    </td>-->
+    <!--                                </tr>-->
+    <!--                            </p>-->
+
+    <!--                            <br></br>-->
+    <!--                            <p> One2many Relationship </p>-->
+    <!--                            <tr t-foreach='o.person_ids' t-as='line'>-->
+    <!--                                <p>-->
+    <!--                                    <td><span t-esc="line.name"/></td>-->
+    <!--                                    <td><span t-field="line.gender"/></td>-->
+    <!--                                </p>-->
+    <!--                            </tr>-->
+    <!--                        </div>-->
+    <!--                    </t>-->
+    <!--                </t>-->
+    <!--            </t>-->
+    <!--        </template>-->
 </odoo>
