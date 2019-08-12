@@ -34,7 +34,16 @@
                 <header>
                     <!--                    <button name="change_phone" string="Total" type="object" class="btn btn-warning"/>-->
                 </header>
+
                 <sheet>
+
+                    <div class="oe_button_box" name="button_box">
+                        <button type="action" class="oe_stat_button"
+                                icon="fa-pencil-square-o"  align="right" string="Amount  " name="amount" >
+                            <field name="amount" widget="boolean_button" options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                        </button>
+                    </div>
+
                     <group>
                         <field name="name"/>
                         <field name="price"/>

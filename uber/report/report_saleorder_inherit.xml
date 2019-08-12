@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="report_saleorder" inherit_id="sale.report_saleorder_document">
+
+        <xpath expr="//div[@class='row mt32 mb32']/div[@t-if='doc.user_id.name']" position="replace">
+            <strong>Sales Person :</strong>
+            <p t-field="doc.user_id"/>
+        </xpath>
+
+        <xpath expr="//div[@class='row mt32 mb32']/div[@t-if='doc.client_order_ref']" position="after">
+            <strong>Reference:</strong>
+            <p t-field="doc.client_order_ref"/>
+        </xpath>
+
+
+        <!--        <t-field name="doc.payment_term_id" position="attributes">-->
+        <!--            <attribute name="invisible">1</attribute>-->
+        <!--        </t-field>-->
+
+        <xpath expr="//div[@class='row mt32 mb32']/div[5]" position="replace">
+                <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col-xs-3">
+                    <strong>Expiration:</strong>
+                    <p t-field="doc.validity_date"/>
+                </div>
+        </xpath>
+
+
+        <!--        <xpath expr="//table[@class='table table-condensed']/thead/tr/th[5]/field[@class='text-right']" position="replace">-->
+        <xpath expr="//table[@class='table table-condensed']/thead/tr" position="replace">
+            <th>Description</th>
+            <th class="text-right">Quantity</th>
+            <th class="text-right">Unit Price</th>
+            <th t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">Disc.(%)</th>
+            <th class="text-right">GST</th>
+            <th class="text-right" groups="sale.group_show_price_subtotal">Amount</th>
+            <th class="text-right price_tax_included" groups="sale.group_show_price_total">Total Price</th>
+        </xpath>
+
+
+    </template>
+
+</odoo>

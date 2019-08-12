@@ -108,3 +108,14 @@ class Phone(models.Model):
 #         record.total = sum(line.value for line in record.line_ids)
 
 #In model inheritance, you can define values for _inherit (parent model name) and _inherits (dictionary with parent model and parent relation field).
+
+
+# def _compute_user_todo_count(self):
+#     for task in self:
+#         task.user_todo_count = task.search_count(
+#             [('user_id', '=', task.user_id.id)])
+#
+# user_todo_count = fields.Integer(
+#     'User To-Do Count',
+#     compute='_compute_user_todo_count')
+

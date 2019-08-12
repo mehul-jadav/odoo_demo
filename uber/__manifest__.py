@@ -30,7 +30,6 @@
         'report/person_report.xml',
         'report/report_user_template.xml',
         'report/report_wizard_user.xml',
-        'report/guest_template.xml',
-        'report/guest_report.xml'
+        'report/report_saleorder_inherit.xml',
     ]
 }
