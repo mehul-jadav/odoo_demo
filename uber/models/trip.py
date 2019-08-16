@@ -27,6 +27,13 @@ class Trip(models.Model):
         from datetime import datetime
         new_person = self.create({'name':'abc','start_date':datetime.now(),'end_date':datetime.now(),'trip_type':'solo','person_id':2})
 
+    #x2many
+    @api.multi
+    def action(self):
+        for detail in self:
+            self.write({'trip_menus': [(0, 0, {'name': 'ABC', 'amount': 200})]})
+        return True
+
     @api.multi
     def start_trip(self):
         record = self.read(['name','start_date','person_id'])

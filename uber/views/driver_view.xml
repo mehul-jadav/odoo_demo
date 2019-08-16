@@ -5,6 +5,20 @@
     <menuitem id="menu_driver_root" name="Book Your Ride"/>
     <menuitem id="menu_driver_main" name="Driver" parent="menu_driver_root"/>
 
+<!--    <record id="driver_sequence_type" model="ir.sequence.type">-->
+<!--        <field name="name">Driver sequence type</field>-->
+<!--        <field name="code">driver.code.sequence</field>-->
+<!--    </record>-->
+
+<!--    <record id="driver_sequence_view" model="">-->
+<!--        <field name="">Driver Sequence</field>-->
+<!--        <field name="code">driver.code.sequence</field>-->
+<!--        <field name="prefix">SCS/%(year)s/</field>-->
+<!--        <field name="padding">3</field>-->
+<!--        <field name="implementation">no_gap</field>-->
+<!--    </record>-->
+
+
     <!--    Driver tree view-->
     <record id="view_driver_tree" model="ir.ui.view">
         <field name="name">driver.tree</field>

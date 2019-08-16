@@ -62,6 +62,7 @@ class Driver(models.Model):
         }
 
 
+
     ####
     @api.model
     def create(self,vals):

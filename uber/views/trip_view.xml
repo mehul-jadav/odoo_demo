@@ -25,6 +25,7 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button name="action" string="Action" type="object" class="btn btn-primary"/>
                     <button name="action_create" string="Create" type="object" class="btn btn-secondary"/>
                     <button name="start_trip" string="Start" type="object" class="btn btn-success"/>
                     <button name="end_trip" string="End" type="object" class="btn btn-danger"/>
