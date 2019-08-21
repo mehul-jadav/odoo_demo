@@ -119,3 +119,6 @@ class Phone(models.Model):
 #     'User To-Do Count',
 #     compute='_compute_user_todo_count')
 
+
+# date = fields.Date.from_string(old_date)
+#  worked_days = (fields.date.today() - date).days
